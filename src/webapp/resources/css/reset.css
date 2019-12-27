@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/*초기화*/
+body,button,dd,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,legend,
+li,ol,p,select,table,td,textarea,th,ul{
+  margin: 0;
+  padding: 0;
+}
+body,button,input,select,table,textarea{
+  font-size: 12px;
+  font-family: Dotum,'돋움', Helvetica, sans-serif;
+}
+button,input{
+  border-radius: 0;
+}
+fieldset,img{
+  list-style: none;
+}
+address,em{
+  font-style: normal;
+}
+a{
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none;
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.exbyte.mvcboard"/> <!-- Component 패키지 지정 -->
+    <context:component-scan base-package="com.exbyte.mvcboard.commons.thread"/> <!-- Component 패키지 지정 -->
+
+    <!-- DataSource log4jdbc-log4j2 설정-->
+    <!-- ConnectionPool 을 사용하는 DataSource로 변경함 -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/project?useSSL=false&amp;serverTimezone=UTC"/>
+        <property name="username" value="RAYOR"/>
+        <property name="password" value="1"/>
+        <property name="maxActive" value="50"/>
+        <property name="maxWait" value="100"/>
+        <property name="maxIdle" value="30"/>
+    </bean>
+
+    <!--SqlSessionFactory 설정 : dataSource를 참조, mybatis-config.xml 경로설정-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!-- mybatis 기본 설정-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!-- Query 위치 -->
+        <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"/>
+        <!-- 트랜잭션 관리 -->
+        <property name="transactionFactory">
+            <bean class="org.mybatis.spring.transaction.SpringManagedTransactionFactory"/>
+        </property>
+    </bean>
+
+    <!-- 트랜잭션 관리 빈 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+
+
+
+
+
+</beans>

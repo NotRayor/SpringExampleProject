@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+.accordian-title{
+  background: #FFFFFF;
+  color: #000;
+  height: 34px;
+  line-height: 30px;
+  border-top: 1px solid #efefef;
+  padding-left: 10px;
+  cursor: pointer;
+  font-family: 'Gugi', cursive;
+
+}
+
+.accordian-desc{
+  height: 100px;
+  background: #efefef;
+  display: none;
+  font-size : 8px;
+}
+
+
+
+/*.accordian .isOpen + .accordian-desc{
+  display: block;
+}*/
+
+.accordian{
+  margin: 0 0 0 0 ;
+}
+
+
+/*.accordian-desc:first-child{
+  display: block;
+}*/
+
+.accordian-title:nth-child(1) + .accordian-desc{
+  display:block;
+}

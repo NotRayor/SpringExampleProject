@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.exbyte.mvcboard.mappers.MemberMapper">
+
+    <select id="getTime" resultType="string">
+        SELECT NOW();
+    </select>
+
+    <insert id="create" >
+        INSERT INTO tbl_member (
+            userid
+            , userpw
+            , username
+            , email
+        ) VALUES (
+            #{userid}
+            , #{userpw}
+            , #{username}
+            , #{email}
+        )
+    </insert>
+
+    <select id="read" resultMap="MemberResultMap">
+        SELECT
+            *
+        FROM
+            tbl_member
+        WHERE userid = #{userid}
+
+    </select>
+
+    <select id="readWithPw" resultMap="MemberResultMap">
+        SELECT
+            *
+        FROM
+            tbl_member
+        WHERE userid = #{userid} AND userpw = #{userpw}
+    </select>
+
+
+    <delete id="delete">
+        DELETE FROM tbl_member WHERE userid = #{userid}
+    </delete>
+
+    <update id="update">
+        UPDATE tbl_member
+        SET
+            userid = #{userid}
+            , userpw = #{userpw}
+        WHERE
+            userid = #{userid}
+    </update>
+
+    <select id="listAll" resultMap="MemberResultMap">
+        <![CDATA[
+        SELECT
+            userid
+            , userpw
+            , username
+            , email
+            , regdate
+            , updated_date
+        FROM tbl_member
+        ORDER BY userid DESC, regdate DESC
+        ]]>
+    </select>
+
+    <resultMap id="MemberResultMap" type="MemberVO">
+        <id property="userid" column="userid"/>
+        <result property="userpw" column="userpw"/>
+        <result property="username" column="username"/>
+        <result property="email" column="email"/>
+        <result property="regdate" column="regdate"/>
+        <result property="updatedDate" column="updated_date"/>
+    </resultMap>
+
+</mapper>

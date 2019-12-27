@@ -1,0 +1,328 @@
+@charset "UTF-8";
+
+/*#header{
+  background-color: #0E2240;
+  opacity: 0.90;
+  height: 90px;
+  width: 3000px;
+  border-bottom:  1px solid #efefef;
+  position : fixed;
+  z-index: 99999999;
+  margin : 0 auto;
+}*/
+
+.head{
+  background-color: #0E2240;
+  opacity: 0.90;
+  width: 100%;
+  border-bottom:  1px solid #efefef;
+  z-index: -9999;
+}
+
+.header_in{
+  background-color: #0E2240;
+  height: 90px;
+  width : 1640px;
+  margin: 0 auto;
+}
+
+.logo{
+  margin:10px 30px;
+  width : 230px;
+  float:left;
+}
+
+
+#nav{
+  width:650px;
+  float: left;
+  margin : 40px 10px 40px 80px;
+}
+
+.nav_inners{
+  background: #FFF;
+  margin:0 auto;
+}
+
+.nav_inner{
+  font-size: 15px;
+}
+
+.in_menu{
+  float:left;
+  margin:0 30px;
+}
+
+.menu_link{
+  color: #fff;
+}
+
+.login{
+  margin: 30px 0 0 300px;;
+  float:left;
+  font-size: 11px;
+}
+
+.login_menu{
+  float:left;
+  margin: 15px 10px;
+  color:#fff
+}
+
+
+.text_box{
+  font-size: 15px;
+  text-align: center;
+  position: absolute;
+  top : 400px;
+  margin : 0 auto;
+  float: left;
+  width:1640px;
+  color:#fff;
+  text-shadow:2px 2px 4px #000000;
+}
+
+
+
+#content{
+  height:800px;
+  background: rgba(0,0,0,.1);
+  background-color: #0E2240;
+}
+
+
+.section1 {
+  height:790px;
+  margin:0;
+  padding: 0;
+  background: #fff;
+}
+
+.name_top{
+  height:90px;
+  width:850px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+.text{
+  height:300px;
+  width:850px;
+  margin: 0 auto;
+  font-size: 15px;
+}
+
+
+.page-section {
+  height:600px;
+  background: #D0D0D0;
+  margin:0;
+  padding: 0;
+}
+
+.col-md-6{
+  float: left;
+  width: 820px;
+  height : 330px;
+}
+
+.col-md-4{
+  width: 1300px;
+  margin: 0 auto
+}
+
+.col-mds{
+  width: 1300px;
+  margin: 0 auto;
+  position:relative;
+  top:30px;
+}
+
+.form-group{
+  text-align:right;
+}
+
+.form-control{
+  width : 500px;
+  height : 260px;
+}
+
+.row_service{
+  margin:100px 0 0 0;
+}
+
+.image_service{
+  width:25%;
+  float : left;
+  text-align: center;
+}
+
+.image_service1{
+  width:25%;
+  float : left;
+  text-align: center;
+  font-size: 22px;
+}
+
+.image_service2{
+  margin-top: 10px;
+  width:25%;
+  float : left;
+  text-align: center;
+  font-size: 15px;
+}
+
+
+.intro{
+  width : 100%;
+  height: 370px;
+  float : left;
+}
+
+.int{
+  position:relative;
+  top:60px;
+  left: 400px;
+}
+
+.pj{
+  width:1300px;
+  height: 500px;
+  text-align: center;
+  margin : 0 auto;s
+}
+
+.pj_tp{
+  width:25%;
+  height:20px;
+  float : left;
+  margin : 80px 0 10px 0;
+  font-style: italic;
+  font-size: 14px;
+  color:#585858
+}
+
+.pj_ex{
+  width:25%;
+  height:220px;
+  float : left;
+}
+
+.pj_dw{
+  width:25%;
+  height:100px;
+  float : left;
+  font-size:16px;
+  text-align: center;
+}
+
+
+
+#sendMessageButton{
+  position:relative;
+  left: 760px;
+}
+
+#footer{
+  height: 150px;
+  background: #fff;
+  width:1880px;
+  margin:0 auto ;
+}
+
+.footer_inner{
+  background: #fff;
+  width:1640px;
+  height : 150px;
+  margin:0 auto;
+  border-top:  1px solid #efefef;
+}
+
+.footer_inner_text1{
+  font-size: 16px;
+  background: #fff;
+  width:1640px;
+  height : 50px;
+  margin-left:150px;
+  margin-top:20px;
+}
+
+.footer_inner_text2{
+  font-size: 11px;
+  background: #fff;
+  width:1000px;
+  height : 50px;
+  margin-left : 150px;
+  margin-top : 5px;
+}
+
+.footer_link{
+  font-size: 14px;
+  color: #000000;
+  margin-right : 10px;
+}
+
+.foot{
+  font-size: 13px;
+}
+
+
+
+
+/*전체속성 크기조정할때 : div로 전체를 감싸고 그 크기를 조정*/
+
+/*#body{
+  width: 1000px;
+  margin: 0 auto;
+}*/
+
+.section-heading {
+  text-align:center;
+  color:#0e2240;
+}
+
+.section-subheading {
+  text-align:center;
+  color:#000000;
+}
+
+.section_main{
+  width : 665px;
+  background:#FFF;
+  float: left;
+  margin-right: 5px;
+}
+
+.aside{
+  width : 330px;
+  background:#FFF;
+  float: left;
+  height: 206px;
+  margin-bottom : 5px;
+}
+
+
+.swiper-container{
+  width : 330px;
+  background:#FFF;
+  float: left;
+  height: 100%;
+  margin-top:5px;
+}
+
+.col-md-6{
+  flex: 0 0 50%;
+  max-width:50%;
+}
+
+.section{
+  background: #FFF;
+  height : 590px;
+}
+
+
+#contactForm{
+  box-sizing:border-box;
+}
