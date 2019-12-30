@@ -50,7 +50,11 @@
                             <c:forEach items="${articles}" var="article">
                                 <tr>
                                     <td>${article.articleNo}</td>
-                                    <td><a href="${path}/article/read?articleNo=${article.articleNo}">${article.title}</a></td>
+                                    <td>
+                                        <a href="${path}/article/readPaging${pageMaker.makeSearch(pageMaker.criteria.page)}&articleNo=${article.articleNo}">
+                                            ${article.title}
+                                        </a>
+                                    </td>
                                     <td>${article.writer}</td>
                                     <td><fmt:formatDate value="${article.regDate}" pattern="yyyy-MM-dd a HH:mm"/></td>
                                     <td><span class="badge bg-red">${article.viewCnt}</span></td>
@@ -60,11 +64,55 @@
                         </table>
                     </div><!--/.card-body-->
                     <div class="card-footer">
-                        <button type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i>글쓰기</button>
+                        <div class="text-center">
+                            <ul class="pagination justify-content-center">
+                                <c:if test="${pageMaker.prev}">
+                                   <!-- <li class="page-item"><a href="${path}/article/listPagingRead?${pageMaker.makeSearch(pageMaker.startPage - 1)}">이전</a></li> -->
+                                    <li class="page-item"><a class="page-link" href="${path}/article/list${pageMaker.makeSearch(pageMaker.startPage - 1)}">이전</a></li>
+                                </c:if> <!-- li prev -->
+                                <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+                                    <li class="page-item <c:out value="${pageMaker.criteria.page == idx ? 'active' : ''}"/>"   >
+                                       <!-- <a href = "${path}/article/listPagingRead?${pageMaker.makeSearch(idx)}">${idx}</a> -->
+                                        <a class="page-link" href = "${path}/article/list${pageMaker.makeSearch(idx)}">${idx}</a>
+                                    </li> <!--li page -->
+                                </c:forEach>
+                                <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+                                    <!-- <li class="page-item"><a href="${path}/article/listPagingRead?${pageMaker.makeSearch(pageMaker.endPage + 1)}">다음</a></li> -->
+                                    <li class="page-item"><a class="page-link" href = "${path}/article/list${pageMaker.makeSearch(pageMaker.endPage + 1)}">다음</a></li>
+                                </c:if> <!-- li next -->
+                            </ul><!--/.pagination -->
+                        </div><!--/.text-center-->
                     </div><!--/.card-footer-->
-                </div>
-            </div>
-
+                    <div class="card-footer">
+                        <div class="form-group col-sm-2">
+                            <select class="form-control" name="searchType" id="searchType">
+                                <option value="n" <c:out value="${criteria.searchType == null ? 'selected' : ''}"/>>===선택===</option> <!-- 아무 선택도 안함 -->
+                                <option value="t" <c:out value="${criteria.searchType == 't' ? 'selected' : ''}" />>제목</option> <!-- 제목 -->
+                                <option value="c" <c:out value="${criteria.searchType == 'c' ? 'selected' : ''}" /> >내용</option> <!-- 내용 -->
+                                <option value="w" <c:out value="${criteria.searchType == 'w' ? 'selected' : ''}" /> >작성자</option> <!-- 작성자 -->
+                                <option value="tc" <c:out value="${criteria.searchType == 'tc' ? 'selected' : ''}" />> 제목+내용 </option><!-- 제목, 내용 -->
+                                <option value="cw" <c:out value="${criteria.searchType == 'cw' ? 'selected' : ''}" /> >내용+작성자</option> <!-- 내용, 작성자 -->
+                                <option value="tcw" <c:out value="${criteria.searchType == 'tcw' ? 'selected' : ''}" /> >제목+내용+작성자</option><!-- 제목, 내용, 작성자 -->
+                            </select>
+                        </div><!-- form-group col-sm-2 -->
+                            <div class="form-group col-sm-10">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="keyword" id="keywordInput" value="${criteria.keyword}" placeholder="검색어">
+                                    <span>
+                                        <button type="button" class="btn btn-primary btn-flat searchBtn">
+                                            <i class="fa fa-search"></i>검색
+                                        </button>
+                                    </span> <!-- input-group btn -->
+                                </div> <!-- input-group -->
+                            </div> <!-- form-group col-sm-10 -->
+                            <div class="float-right">
+                                <button type="button" class="btn btn-success btn-flat" id="writeBtn">
+                                    <i class="fa fa-pencil"></i> 글쓰기
+                                </button>
+                            </div><!-- float-right -->
+                    </div><!--/.card-footer-->
+                </div><!-- /.card card-primary card-outline-->
+            </div><!-- /.col-lg-12 -->
         </section>
         <!-- /.content -->
     </div>
@@ -78,7 +126,6 @@
 <%@ include file="../include/plugin_js.jsp"%>
 <script>
 
-
     var result = "${msg}";
     if (result == "regSuccess") {
         alert("게시글 등록이 완료되었습니다.");
@@ -87,6 +134,23 @@
     } else if (result == "delSuccess") {
         alert("게시글 삭제가 완료되었습니다.");
     }
+
+    $(document).ready(function () {
+
+        $('.searchBtn').on("click", function () {
+
+         self.location =
+               "/article/list${pageMaker.makeQuery(1)}"
+            + "&searchType=" +$("select option:selected").val()
+            + "&keyword=" + encodeURIComponent($('#keywordInput').val());
+        });
+
+        $('#writeBtn').on("click", function () {
+           self.location = "/article/write"
+        });
+    });
+
+
 </script>
 </body>
 </html>

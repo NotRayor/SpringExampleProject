@@ -1,6 +1,7 @@
 package com.exbyte.mvcboard.service;
 
 import com.exbyte.mvcboard.commons.paging.Criteria;
+import com.exbyte.mvcboard.commons.paging.SearchCriteria;
 import com.exbyte.mvcboard.domain.ArticleVO;
 import com.exbyte.mvcboard.persistence.ArticleDAO;
 import org.springframework.stereotype.Service;
@@ -44,8 +45,22 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public List<ArticleVO> listPaging(Criteria criteria) throws Exception {
-        return articleDAO.listPaging(criteria);
+    public List<ArticleVO> listCriteria(Criteria criteria) throws Exception {
+        return articleDAO.listCriteria(criteria);
     }
 
+    @Override
+    public int countArticle() throws Exception {
+        return articleDAO.countArticle();
+    }
+
+    @Override
+    public List<ArticleVO> listSearch(SearchCriteria searchCriteria) throws Exception {
+        return articleDAO.listSearch(searchCriteria);
+    }
+
+    @Override
+    public int countSearchedArticles(SearchCriteria searchCriteria) throws Exception {
+        return articleDAO.countSearchedArticles(searchCriteria);
+    }
 }

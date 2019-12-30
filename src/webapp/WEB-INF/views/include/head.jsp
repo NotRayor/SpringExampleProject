@@ -21,8 +21,10 @@
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.css">
+
   <!-- Theme style -->
-  <link rel="stylesheet" href="../dist/css/adminlte.css">
+  <link rel="stylesheet" href="../dist/css/alt/adminlte.core.min.css">
+
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>

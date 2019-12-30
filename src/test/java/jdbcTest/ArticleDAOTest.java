@@ -1,6 +1,7 @@
 package jdbcTest;
 
 import com.exbyte.mvcboard.commons.paging.Criteria;
+import com.exbyte.mvcboard.commons.paging.SearchCriteria;
 import com.exbyte.mvcboard.domain.ArticleVO;
 import com.exbyte.mvcboard.persistence.ArticleDAO;
 import org.junit.Test;
@@ -23,12 +24,30 @@ public class ArticleDAOTest {
     private ArticleDAO articleDAO;
 
     @Test
+    public void testDynamic1() throws Exception{
+        SearchCriteria searchCriteria = new SearchCriteria();
+        searchCriteria.setPage(1);
+        searchCriteria.setKeyword("999");
+        searchCriteria.setSearchType("t");
+
+        logger.info("searched articles Count : " + articleDAO.countSearchedArticles(searchCriteria));
+
+
+        List<ArticleVO> articleVOList = articleDAO.listSearch(searchCriteria);
+
+        for(ArticleVO articleVO : articleVOList){
+            logger.info(articleVO.getArticleNo() + ":" + articleVO.getTitle());
+            logger.info(articleVO.toString());
+        }
+    }
+
+    @Test
     public void testPaging() throws Exception{
         Criteria criteria = new Criteria();
         criteria.setPage(3);
         criteria.setPerPageNum(20);
 
-        List<ArticleVO> articleVOList = articleDAO.listPaging(criteria);
+        List<ArticleVO> articleVOList = articleDAO.listCriteria(criteria);
 
         for(ArticleVO article : articleVOList){
             logger.info(article.toString());
@@ -37,6 +56,10 @@ public class ArticleDAOTest {
 
     }
 
+    @Test
+    public void testCount() throws Exception{
+        logger.info("totalPageNum = " + articleDAO.countArticle());
+    }
     /* 더미 데이터 생성
     @Test
     public void testCreate() throws Exception{

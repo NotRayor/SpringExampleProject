@@ -34,7 +34,7 @@ public class Criteria {
     }
 
     public void setPerPageNum(int perPageNum) {
-        if(page <= 0 || page >= 100){
+        if(perPageNum <= 0 || perPageNum >= 100){
             this.perPageNum = 10;
             return;
         }

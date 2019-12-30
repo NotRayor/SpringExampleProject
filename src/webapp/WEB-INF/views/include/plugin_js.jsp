@@ -10,7 +10,12 @@
 
 <!-- jQuery -->
 <script src="../plugins/jquery/jquery.js"></script>
+
 <!-- Bootstrap 4 -->
-<script src="../plugins/bootstrap.js/bootstrap.bundle.js"></script>
+<script src="../plugins/bootstrap/js/bootstrap.js"></script>
+
+<!-- Bootstrap bundle 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.js"></script>
+
 <!-- AdminLTE App -->
 <script src="../dist/js/adminlte.js"></script>

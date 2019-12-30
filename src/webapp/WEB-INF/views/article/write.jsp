@@ -58,7 +58,7 @@
                                 </div> <!--/.form-group -->
                         </div><!--/.card-body-->
                         <div class="card-footer">
-                            <button type="button" class="btn btn-primary"><i class="fa fa-list"></i>목록</button>
+                            <button type="button" id="listBtn" class="btn btn-primary"><i class="fa fa-list"></i>목록</button>
                             <div class="float-right">
                                 <button type="reset" class="btn btn-warning"><i class="fa fa-reply"></i>초기화</button>
                                 <button type="submit" class="btn btn-success"><i class="fa fa-save"></i>저장</button>
@@ -93,5 +93,18 @@
 
     <!-- REQUIRED SCRIPTS -->
     <%@ include file="../include/plugin_js.jsp"%>
+
+    <script>
+        var formObj = $('#writeForm');
+
+        $(document).ready(function () {
+            $('#listBtn').on("click", function () {
+                formObj.attr("method", "GET");
+                formObj.attr("action", "${path}/article/list");
+                formObj.submit();
+            });
+        });
+
+    </script>
 </body>
 </html>

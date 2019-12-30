@@ -1,6 +1,7 @@
 package com.exbyte.mvcboard.persistence;
 
 import com.exbyte.mvcboard.commons.paging.Criteria;
+import com.exbyte.mvcboard.commons.paging.SearchCriteria;
 import com.exbyte.mvcboard.domain.ArticleVO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -46,9 +47,22 @@ public class ArticleDAOImpl implements ArticleDAO {
     }
 
     @Override
-    public List<ArticleVO> listPaging(Criteria criteria) throws Exception {
-        return sqlSession.selectList(NAMESPACE + ".listPaging", criteria);
+    public List<ArticleVO> listCriteria(Criteria criteria) throws Exception {
+        return sqlSession.selectList(NAMESPACE + ".listCriteria", criteria);
     }
 
+    @Override
+    public int countArticle() throws Exception {
+        return sqlSession.selectOne(NAMESPACE + ".countArticle");
+    }
 
+    @Override
+    public List<ArticleVO> listSearch(SearchCriteria searchCriteria) throws Exception {
+        return sqlSession.selectList(NAMESPACE + ".listSearch", searchCriteria);
+    }
+
+    @Override
+    public int countSearchedArticles(SearchCriteria searchCriteria) throws Exception {
+        return sqlSession.selectOne(NAMESPACE + ".countSearchedArticles", searchCriteria);
+    }
 }
