@@ -1,7 +1,7 @@
 package javaTest;
 
-import com.exbyte.mvcboard.domain.ArticleVO;
-import com.exbyte.mvcboard.persistence.ArticleDAO;
+import com.exbyte.mvcboard.article.domain.ArticleVO;
+import com.exbyte.mvcboard.article.persistence.ArticleDAO;
 import jdbcTest.ArticleDAOTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;

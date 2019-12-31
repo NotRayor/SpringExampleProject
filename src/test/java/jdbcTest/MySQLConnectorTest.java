@@ -1,19 +1,15 @@
 package jdbcTest;
 
-import com.exbyte.mvcboard.domain.ConsultingVO;
-import com.exbyte.mvcboard.domain.ManagerVO;
+import com.exbyte.mvcboard.tutorial.domain.ManagerVO;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import org.junit.runners.JUnit4;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+
+import static org.junit.Assert.assertNotNull;
 
 
 public class MySQLConnectorTest {

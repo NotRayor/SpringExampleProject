@@ -4,7 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="com.exbyte.mvcboard.domain.ArticleVO" alias="ArticleVO"/>
-        <typeAlias type="com.exbyte.mvcboard.domain.MemberVO" alias="MemberVO"/>
+        <typeAlias type="com.exbyte.mvcboard.article.domain.ArticleVO" alias="ArticleVO"/>
+        <typeAlias type="com.exbyte.mvcboard.tutorial.domain.MemberVO" alias="MemberVO"/>
+        <typeAlias type="com.exbyte.mvcboard.reply.domain.ReplyVO" alias="ReplyVO"/>
     </typeAliases>
 </configuration>

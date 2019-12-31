@@ -1,7 +1,7 @@
 package jdbcTest;
 
-import com.exbyte.mvcboard.domain.MemberVO;
-import com.exbyte.mvcboard.persistence.MemberDAO;
+import com.exbyte.mvcboard.tutorial.domain.MemberVO;
+import com.exbyte.mvcboard.tutorial.persistence.MemberDAO;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;

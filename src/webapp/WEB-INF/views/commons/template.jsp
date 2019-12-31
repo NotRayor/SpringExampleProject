@@ -35,6 +35,8 @@
         <section class="content container-fluid">
             <div class="col-lg-12">
                 <div class="card card-primary card-outline">
+                    <div class="card-header">
+                    </div><!--/.card-header-->
                     <div class="card-body">
                     </div><!--/.card-body-->
                     <div class="card-footer">

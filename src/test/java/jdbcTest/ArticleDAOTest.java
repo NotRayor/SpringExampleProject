@@ -1,9 +1,9 @@
 package jdbcTest;
 
-import com.exbyte.mvcboard.commons.paging.Criteria;
-import com.exbyte.mvcboard.commons.paging.SearchCriteria;
-import com.exbyte.mvcboard.domain.ArticleVO;
-import com.exbyte.mvcboard.persistence.ArticleDAO;
+import com.exbyte.mvcboard.article.commons.paging.Criteria;
+import com.exbyte.mvcboard.article.commons.paging.SearchCriteria;
+import com.exbyte.mvcboard.article.domain.ArticleVO;
+import com.exbyte.mvcboard.article.persistence.ArticleDAO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

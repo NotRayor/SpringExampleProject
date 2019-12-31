@@ -15,7 +15,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="ManagerExample" options="-Xlint:all" />
+      <module name="ManagerExample" options="-Xlint:-processing" />
     </option>
   </component>
 </project>

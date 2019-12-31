@@ -1,8 +1,8 @@
 package jdbcTest;
 
-import com.exbyte.mvcboard.commons.thread.AsyncConfig;
-import com.exbyte.mvcboard.persistence.ArticleDAO;
-import com.exbyte.mvcboard.service.AsyncTaskSample;
+import com.exbyte.mvcboard.article.commons.thread.AsyncConfig;
+import com.exbyte.mvcboard.article.persistence.ArticleDAO;
+import com.exbyte.mvcboard.tutorial.service.AsyncTaskSample;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
